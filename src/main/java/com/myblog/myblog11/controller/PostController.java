@@ -20,7 +20,7 @@ public class PostController {
     public PostController(PostService postService) {
         this.postService = postService;
     }
-    @PreAuthorize("hasRole('ADMIN')")
+   // @PreAuthorize("hasRole('ADMIN')")
 
     @PostMapping
     public ResponseEntity<PostDto> createPost(@RequestBody PostDto postDto) {
@@ -35,6 +35,8 @@ public class PostController {
     public ResponseEntity<PostDto> getPostById(@RequestParam long id) {
         PostDto dto = postService.getPostById(id);
         return new ResponseEntity<>(dto, HttpStatus.OK);
+
+
 
 
     }

@@ -8,6 +8,7 @@ import com.myblog.myblog11.repository.CommentRepository;
 import com.myblog.myblog11.repository.PostRepository;
 import com.myblog.myblog11.service.CommentService;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,6 +16,8 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public void deleteComment(long id) {
+
+
         commentRepository.deleteById(id);
 
 
@@ -54,7 +57,7 @@ CommentDto mapToDto(Comment comment){
     private ModelMapper modelMapper;
 
 
-
+ @Autowired
     public CommentServiceImpl(PostRepository postRepository, CommentRepository commentRepository , ModelMapper modelMapper) {
         this.postRepository = postRepository;
         this.commentRepository = commentRepository;
